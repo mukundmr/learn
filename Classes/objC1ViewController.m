@@ -10,32 +10,22 @@
 
 @implementation objC1ViewController
 
-@synthesize sides;
 @synthesize sidesCount;
 
 - (void)updateLabel {
-	NSString *label = nil;
-	label = [[NSString alloc] initWithFormat:@"%d",sides];
-	[label autorelease];
-	sidesCount.text = label;
-}
-
-- (void)decrease {
-	self.sides -= self.sides > 4 ? 1 : 0;
-	[self updateLabel];
+	sidesCount.text = [aPoly label];
 }
 
 - (void)increase {
-	self.sides += self.sides < 8 ? 1 : 0;
+	[aPoly increase];
 	[self updateLabel];
 }
 
-- (id)init {
-	if (self = [super init]) {
-		self.sides = 4;
-	}
-	return self;
+- (void)decrease {
+	[aPoly decrease];
+	[self updateLabel];
 }
+
 
 /*
 // The designated initializer. Override to perform setup that is required before the view is loaded.
@@ -58,7 +48,7 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-	sides = 4;
+	aPoly = [[Poly alloc] init];
 	[self updateLabel];
 }
 
@@ -85,6 +75,7 @@
 }
 
 - (void)dealloc {
+	[aPoly release];
     [super dealloc];
 }
 
