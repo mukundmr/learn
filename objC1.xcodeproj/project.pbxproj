@@ -16,6 +16,7 @@
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28D7ACF80DDB3853001CB0EB /* objC1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* objC1ViewController.m */; };
 		F11527B9103C640F00B551A2 /* Poly.m in Sources */ = {isa = PBXBuildFile; fileRef = F11527B8103C640F00B551A2 /* Poly.m */; };
+		F11FA76D1042EAC500A3298C /* PolyView.m in Sources */ = {isa = PBXBuildFile; fileRef = F11FA76C1042EAC500A3298C /* PolyView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,8 @@
 		8D1107310486CEB800E47090 /* objC1-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "objC1-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		F11527B7103C640F00B551A2 /* Poly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Poly.h; sourceTree = "<group>"; };
 		F11527B8103C640F00B551A2 /* Poly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Poly.m; sourceTree = "<group>"; };
+		F11FA76B1042EAC500A3298C /* PolyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolyView.h; sourceTree = "<group>"; };
+		F11FA76C1042EAC500A3298C /* PolyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PolyView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +62,8 @@
 				28D7ACF70DDB3853001CB0EB /* objC1ViewController.m */,
 				F11527B7103C640F00B551A2 /* Poly.h */,
 				F11527B8103C640F00B551A2 /* Poly.m */,
+				F11FA76B1042EAC500A3298C /* PolyView.h */,
+				F11FA76C1042EAC500A3298C /* PolyView.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -170,6 +175,7 @@
 				1D3623260D0F684500981E51 /* objC1AppDelegate.m in Sources */,
 				28D7ACF80DDB3853001CB0EB /* objC1ViewController.m in Sources */,
 				F11527B9103C640F00B551A2 /* Poly.m in Sources */,
+				F11FA76D1042EAC500A3298C /* PolyView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,18 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Poly.h"
 
 @interface objC1ViewController : UIViewController {
-	IBOutlet UILabel *sidesCount;
-	Poly *aPoly;
+	IBOutlet UIView *polyView;
 }
 
-@property (nonatomic, retain) UILabel *sidesCount; 
-
-- (void)updateLabel;
-- (void)increase;
-- (void)decrease;
+@property (nonatomic, retain) UIView *polyView;
 
 @end
 

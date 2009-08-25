@@ -21,5 +21,6 @@
 - (void)increase;
 - (void)decrease;
 - (NSString *)label;
+- (NSArray *)getPolyPoints:(CGRect)aRect;
 
 @end

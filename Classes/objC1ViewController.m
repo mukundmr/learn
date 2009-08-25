@@ -10,22 +10,7 @@
 
 @implementation objC1ViewController
 
-@synthesize sidesCount;
-
-- (void)updateLabel {
-	sidesCount.text = [aPoly label];
-}
-
-- (void)increase {
-	[aPoly increase];
-	[self updateLabel];
-}
-
-- (void)decrease {
-	[aPoly decrease];
-	[self updateLabel];
-}
-
+@synthesize polyView;
 
 /*
 // The designated initializer. Override to perform setup that is required before the view is loaded.
@@ -48,8 +33,7 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-	aPoly = [[Poly alloc] init];
-	[self updateLabel];
+	[polyView setDefaultValues];
 }
 
 
@@ -74,9 +58,5 @@
 	// e.g. self.myOutlet = nil;
 }
 
-- (void)dealloc {
-	[aPoly release];
-    [super dealloc];
-}
 
 @end
