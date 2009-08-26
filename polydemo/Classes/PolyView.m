@@ -34,6 +34,10 @@
 	[self updateLabel];
 }
 
+- (void)awakeFromNib {
+	// the real initializer when you use IB
+	[self setDefaultValues];
+}
 
 - (id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {

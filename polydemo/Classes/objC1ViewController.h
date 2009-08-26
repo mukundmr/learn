@@ -9,10 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface objC1ViewController : UIViewController {
-	IBOutlet UIView *polyView;
+	
 }
-
-@property (nonatomic, retain) UIView *polyView;
 
 @end
 
