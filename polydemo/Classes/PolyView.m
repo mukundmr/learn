@@ -13,10 +13,22 @@
 
 @synthesize sidesCount;
 @synthesize shapeLabel;
+@synthesize sidesSlider;
+@synthesize lineStyleSwitch;
+
+- (void)sliderUsed {
+	aPoly.sides = (int)sidesSlider.value;
+	[self setNeedsDisplay];
+}
+
+- (void)switchUsed {
+	[self setNeedsDisplay];
+}
 
 - (void)updateLabel {
 	sidesCount.text = [NSString stringWithFormat:@"%d", aPoly.sides];
 	shapeLabel.text = [aPoly label];
+	[sidesSlider setValue:aPoly.sides];
 }
 
 - (void)increase {
@@ -30,7 +42,15 @@
 }
 
 - (void)setDefaultValues {
+	int storedSides = 0;	
 	aPoly = [[Poly alloc] init];
+	// read stored state
+	storedSides = [[NSUserDefaults standardUserDefaults] integerForKey:@"sides"];
+	if (storedSides != 0) {
+		aPoly.sides = storedSides;
+	}
+	lineStyleSwitch.on = [[NSUserDefaults standardUserDefaults] boolForKey:@"switch"];
+	// refresh display
 	[self updateLabel];
 }
 
@@ -53,15 +73,29 @@
 	NSEnumerator *e;
 	CGPoint point;
 	id iterator;
+	CGFloat dashPattern[2] = {3, 3};
+	CGSize shadowSize;
 	
+	//set the polygon shadow size
+	shadowSize.width = 2;
+	shadowSize.height = -2;
+	
+	// get the polygon points
 	polyPoints= [[NSArray alloc] initWithArray:[aPoly getPolyPoints:self.bounds]];
-	e = [polyPoints objectEnumerator];
+	// get the context before doing anything
 	context = UIGraphicsGetCurrentContext();
+	// set the line style
+	if (lineStyleSwitch.on == TRUE) {
+		CGContextSetLineDash(context, 0, dashPattern, 2);
+	}
+	// set the shadow
+	CGContextSetShadow(context, shadowSize, 2);
 	// move the graphics pen to the first point
 	point = [[polyPoints objectAtIndex:0] CGPointValue];
 	// generate the path
 	CGContextBeginPath(context);
 	CGContextMoveToPoint(context, point.x, point.y);
+	e = [polyPoints objectEnumerator];
 	while (iterator = [e nextObject]) {
 		point = [iterator CGPointValue];
 		CGContextAddLineToPoint(context, point.x, point.y);
@@ -77,10 +111,14 @@
 	[self updateLabel];
 }
 
+- (void)saveState {
+	[[NSUserDefaults standardUserDefaults] setInteger:aPoly.sides forKey:@"sides"];
+	[[NSUserDefaults standardUserDefaults] setBool:lineStyleSwitch.on forKey:@"switch"];
+}
 
 - (void)dealloc {
-    [super dealloc];
 	[aPoly release];
+    [super dealloc];
 }
 
 

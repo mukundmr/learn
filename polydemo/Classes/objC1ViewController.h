@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PolyView.h"
 
 @interface objC1ViewController : UIViewController {
-	
+	IBOutlet PolyView *polyView;
 }
+
+@property (nonatomic, retain) PolyView *polyView;
+
+- (void)saveState;
 
 @end
 

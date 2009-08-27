@@ -22,6 +22,12 @@
     [window makeKeyAndVisible];
 }
 
+- (void)applicationWillTerminate:(UIApplication *)application {
+	//time to save state
+	[viewController saveState];
+}
+
+
 
 - (void)dealloc {
     [viewController release];
